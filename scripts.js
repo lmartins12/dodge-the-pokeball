@@ -1,13 +1,15 @@
 const pikachu = document.querySelector('.pikachu');
-const pipe = document.querySelector('.pipe')
+const pipe = document.querySelector('.pipe');
+const restartButton = document.querySelector('.restart-button');
 
 const jump = () => {
-    pikachu.classList.add('jump');
+  pikachu.classList.add('jump');
 
-    setTimeout(() => {
-        pikachu.classList.remove('jump')
-    }, 500)
+  setTimeout(() => {
+    pikachu.classList.remove('jump')
+  }, 500)
 }
+
 
 const loop = setInterval(() => {
 
@@ -27,8 +29,14 @@ const loop = setInterval(() => {
         pikachu.style.width = '200px'
         pikachu.style.marginLeft = '50px'
         
+        restartButton.style.display = 'block';
+
+    } else {
+        restartButton.style.display = 'none';
     }
 
 }, 10);
 
 document.addEventListener('keydown', jump);
+document.addEventListener('mousedown', jump);
+document.addEventListener('touchstart', jump);
